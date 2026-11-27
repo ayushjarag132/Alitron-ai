@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.signup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: #07875f;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.signup-btn:hover {
+    background: #06a875;
+    transform: translateY(-2px);
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALITRON AI — Your Intelligence, Amplified</title>
+
+    <meta name="description"
+          content="Meet ALITRON AI, your intelligent workspace for conversations, coding, creativity and productivity.">
+
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="grid-background"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">A</span>
+            <span>ALITRON<span class="logo-ai"> AI</span></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#models">Models</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <span class="nav-creator">Created by <strong>Ayush J.</strong></span>
+
+            <button id="themeToggle" class="theme-toggle"
+                    aria-label="Toggle theme">
+                ☀
+            </button>
+
+          <div class="auth-buttons">
+    <a href="login.html" class="login-btn">Log In</a>
+
+    <a href="signup.html" class="signup-btn">
+        Sign Up →
+    </a>
+</div>
+<a href="pages/chat.html" class="nav-cta">
+    Get Started ↗
+</a>
+
+        </div>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <main>
+
+    <section class="hero section" id="home">
+
+        <div class="hero-content reveal">
+
+            <div class="announcement">
+                <span class="live-dot"></span>
+                THE NEXT GENERATION OF AI
+                <span class="announcement-arrow">↗</span>
+            </div>
+
+            <h1>
+                Intelligence<br>
+                Beyond <span class="gradient-text" id="changingWord">Limits.</span>
+            </h1>
+
+            <p class="hero-description">
+                One intelligent workspace. Endless possibilities.
+
+                Discover a smarter way to think, create, code,
+                learn and explore with ALITRON AI.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="signup.html" class="primary-btn">
+                    Explore ALITRON <span>↗</span>
+                </a>
+
+                <a href="#features" class="secondary-btn">
+                    Discover Features ↓
+                </a>
+
+            </div>
+
+            <div class="hero-trust">
+                <span class="trust-line"></span>
+                <span>Built for curiosity. Designed for possibilities.</span>
+            </div>
+
+        </div>
+
+
+        <!-- AI VISUAL -->
+        <div class="hero-visual reveal">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="ai-core">
+                <div class="core-inner">
+                    <span>A</span>
+                </div>
+            </div>
+
+            <div class="floating-card card-top">
+                <span class="card-icon">✦</span>
+                <div>
+                    <strong>AI Intelligence</strong>
+                    <small>Ready to assist</small>
+                </div>
+            </div>
+
+            <div class="floating-card card-bottom">
+                <span class="card-icon blue">⌘</span>
+                <div>
+                    <strong>Creative Thinking</strong>
+                    <small>Ideas into reality</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-bottom">
+            <span>01 — INTRODUCING ALITRON</span>
+            <span>SCROLL TO EXPLORE ↓</span>
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="intro-section section reveal">
+
+        <span class="section-label">A NEW WAY TO WORK WITH AI</span>
+
+        <h2>
+            More than an assistant.<br>
+            <span class="gradient-text">
+                A space for possibilities.
+            </span>
+        </h2>
+
+        <p>
+            ALITRON brings intelligent technology into one unified
+            workspace, helping you transform questions into ideas
+            and ideas into meaningful outcomes.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features-section section" id="features">
+
+        <div class="section-heading reveal">
+
+            <span class="section-label">02 — CAPABILITIES</span>
+
+            <h2>
+                Everything you need.<br>
+                <span class="gradient-text">One intelligent platform.</span>
+            </h2>
+
+            <p>
+                Powerful AI capabilities designed to make your
+                everyday digital experience smarter.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <article class="feature-card large-card reveal">
+
+                <div class="feature-icon purple">✦</div>
+
+                <span class="feature-number">01</span>
+
+                <h3>Intelligent AI Chat</h3>
+
+                <p>
+                    Have natural conversations, explore ideas,
+                    ask questions and get intelligent assistance.
+                </p>
+
+                <div class="feature-visual chat-visual">
+                    <div class="chat-bubble user-bubble">
+                        Help me explore something new.
+                    </div>
+
+                    <div class="chat-bubble ai-bubble">
+                        Absolutely. Let's discover something interesting.
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="feature-card reveal">
+
+                <div class="feature-icon blue">⌘</div>
+
+                <span class="feature-number">02</span>
+
+                <h3>Coding Assistant</h3>
+
+                <p>
+                    Understand code, explore programming concepts
+                    and solve technical problems.
+                </p>
+
+                <div class="code-visual">
+                    <span>function</span> <b>createFuture</b>() {<br>
+                    &nbsp;&nbsp;return <i>"Innovation"</i>;<br>
+                    }
+                </div>
+
+            </article>
+
+
+            <article class="feature-card reveal">
+
+                <div class="feature-icon pink">▤</div>
+
+                <span class="feature-number">03</span>
+
+                <h3>Document Intelligence</h3>
+
+                <p>
+                    Upload documents and interact with their
+                    content using AI-powered understanding.
+                </p>
+
+                <div class="document-visual">
+                    <div class="document-icon">PDF</div>
+                    <div class="document-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="feature-card reveal">
+
+                <div class="feature-icon green">⌕</div>
+
+                <span class="feature-number">04</span>
+
+                <h3>Web Intelligence</h3>
+
+                <p>
+                    Discover information from the web and
+                    explore topics with connected search tools.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card reveal">
+
+                <div class="feature-icon orange">◈</div>
+
+                <span class="feature-number">05</span>
+
+                <h3>AI Memory</h3>
+
+                <p>
+                    Build a more contextual experience by
+                    managing useful information across conversations.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card reveal">
+
+                <div class="feature-icon purple">◎</div>
+
+                <span class="feature-number">06</span>
+
+                <h3>Multiple AI Models</h3>
+
+                <p>
+                    Explore different AI models and select
+                    the right intelligence for your task.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- MODELS -->
+    <section class="models-section section" id="models">
+
+        <div class="section-heading reveal">
+
+            <span class="section-label">03 — AI ECOSYSTEM</span>
+
+            <h2>
+                Intelligence without<br>
+                <span class="gradient-text">being limited to one model.</span>
+            </h2>
+
+            <p>
+                ALITRON is designed to support an evolving
+                ecosystem of AI models.
+            </p>
+
+        </div>
+
+
+        <div class="models-panel reveal">
+
+            <div class="model-item">
+                <div class="model-symbol">L</div>
+                <div>
+                    <h3>Llama</h3>
+                    <p>Open-weight language models</p>
+                </div>
+                <span class="model-status">PLANNED</span>
+            </div>
+
+            <div class="model-item">
+                <div class="model-symbol blue-symbol">Q</div>
+                <div>
+                    <h3>Qwen</h3>
+                    <p>Open-weight AI models</p>
+                </div>
+                <span class="model-status">PLANNED</span>
+            </div>
+
+            <div class="model-item">
+                <div class="model-symbol purple-symbol">+</div>
+                <div>
+                    <h3>More models</h3>
+                    <p>Expandable model ecosystem</p>
+                </div>
+                <span class="model-status">ROADMAP</span>
+            </div>
+
+        </div>
+
+        <p class="model-note">
+            Model availability depends on the actual integrations
+            implemented in ALITRON.
+        </p>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="workflow-section section">
+
+        <div class="section-heading reveal">
+
+            <span class="section-label">04 — GETTING STARTED</span>
+
+            <h2>
+                Simple to begin.<br>
+                <span class="gradient-text">Powerful to explore.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="workflow-grid">
+
+            <div class="workflow-card reveal">
+                <span class="workflow-number">01</span>
+                <div class="workflow-icon">◉</div>
+                <h3>Create your account</h3>
+                <p>Set up your personal ALITRON workspace.</p>
+            </div>
+
+            <div class="workflow-card reveal">
+                <span class="workflow-number">02</span>
+                <div class="workflow-icon">✦</div>
+                <h3>Choose your experience</h3>
+                <p>Explore AI capabilities and available models.</p>
+            </div>
+
+            <div class="workflow-card reveal">
+                <span class="workflow-number">03</span>
+                <div class="workflow-icon">↗</div>
+                <h3>Start exploring</h3>
+                <p>Ask, create, learn and build with AI.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about-section section reveal" id="about">
+
+        <span class="section-label">05 — OUR VISION</span>
+
+        <h2>
+            Technology should<br>
+            <span class="gradient-text">expand human potential.</span>
+        </h2>
+
+        <p>
+            ALITRON AI is being developed with a simple vision:
+            make powerful AI capabilities accessible through
+            one intelligent, intuitive and continuously evolving platform.
+        </p>
+
+        <div class="about-signature">
+            <span class="signature-line"></span>
+            <span>THE ALITRON VISION</span>
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="final-cta section reveal">
+
+        <div class="cta-glow"></div>
+
+        <span class="section-label">YOUR NEXT CHAPTER STARTS HERE</span>
+
+        <h2>
+            Ready to explore<br>
+            <span class="gradient-text">what AI can do?</span>
+        </h2>
+
+        <p>
+            Step into a smarter workspace.
+            Discover the possibilities with ALITRON AI.
+        </p>
+
+        <a href="signup.html" class="primary-btn">
+            Get Started <span>↗</span>
+        </a>
+
+    </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span>ALITRON<span class="logo-ai"> AI</span></span>
+                </a>
+
+                <p>
+                    One intelligent workspace.<br>
+                    Endless possibilities.
+                </p>
+            </div>
+
+
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#models">Models</a>
+                <a href="#about">About</a>
+            </div>
+
+
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Get Started</a>
+                <a href="pages/chat.html">AI Workspace</a>
+            </div>
+
+
+            <div class="creator-badge">
+                <span class="creator-label">A PROJECT BY</span>
+                <strong>Ayush J.</strong>
+                <span class="creator-role">Creator & Developer</span>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> ALITRON AI. All rights reserved.</span>
+            <span>Designed with curiosity. Built with intelligence.</span>
+        </div>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
