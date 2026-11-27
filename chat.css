@@ -1,0 +1,1191 @@
+/* =========================================
+   ALITRON AI — CHAT WORKSPACE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-page {
+    background: #080910;
+    color: #f5f5fa;
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Main layout */
+
+.chat-layout {
+    display: flex;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 65% 20%,
+            rgba(91, 45, 180, 0.12),
+            transparent 35%
+        ),
+        #080910;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 270px;
+    min-width: 270px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 20px;
+    background: rgba(12, 13, 23, 0.95);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.brand-icon {
+    color: #a78bfa;
+    font-size: 28px;
+    text-shadow: 0 0 20px #8b5cf6;
+}
+
+.new-chat-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.2),
+        rgba(59, 130, 246, 0.1)
+    );
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.new-chat-btn:hover {
+    background: rgba(124, 58, 237, 0.3);
+    transform: translateY(-2px);
+}
+
+.sidebar-section {
+    margin-top: 35px;
+}
+
+.sidebar-label {
+    color: #77788c;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 13px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    color: #a5a6b8;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+}
+
+.sidebar-link.active {
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    font-weight: 700;
+}
+
+.user-profile strong {
+    display: block;
+    font-size: 13px;
+}
+
+.user-profile small {
+    display: block;
+    margin-top: 4px;
+    color: #85869a;
+    font-size: 11px;
+}
+
+/* =========================================
+   MAIN CHAT
+========================================= */
+
+.chat-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    overflow: hidden;
+}
+/* Header */
+
+.chat-header {
+    height: 75px;
+    min-height: 75px;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(8, 9, 16, 0.6);
+    backdrop-filter: blur(20px);
+}
+
+.header-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.status-indicator {
+    margin-left: 15px;
+    font-size: 11px;
+    color: #a78bfa;
+}
+
+.menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Chat content */
+
+/* Chat content */
+
+#chatContent {
+    flex: 1 1 0%;
+    min-height: 0;
+    min-width: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    gap: 12px;
+
+    padding: 20px 15px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scroll-behavior: auto;
+}
+.welcome-screen {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.welcome-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    font-size: 38px;
+    color: #c4b5fd;
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.25),
+        rgba(37, 99, 235, 0.15)
+    );
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    box-shadow: 0 0 60px rgba(124, 58, 237, 0.15);
+}
+
+.welcome-eyebrow {
+    color: #a78bfa;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.welcome-screen h1 {
+    font-size: clamp(32px, 5vw, 55px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+}
+
+.welcome-screen h1 span {
+    background: linear-gradient(90deg, #c4b5fd, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.welcome-description {
+    max-width: 500px;
+    margin: 20px auto 35px;
+    color: #9293a7;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Suggestion cards */
+
+.suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.suggestion-card {
+    text-align: left;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.suggestion-card:hover {
+    background: rgba(124, 58, 237, 0.08);
+    border-color: rgba(167, 139, 250, 0.35);
+    transform: translateY(-3px);
+}
+
+.suggestion-card span {
+    display: block;
+    color: #a78bfa;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.suggestion-card strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.suggestion-card small {
+    display: block;
+    color: #85869a;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   CHAT INPUT
+========================================= */
+
+.chat-input-area {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px 25px 25px;
+}
+
+.chat-input-box {
+    padding: 18px 20px 14px;
+    border-radius: 20px;
+    background: rgba(20, 21, 33, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.25);
+    transition: 0.25s;
+}
+
+.chat-input-box:focus-within {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.08);
+}
+
+.chat-input-box textarea {
+    width: 100%;
+    min-height: 35px;
+    max-height: 150px;
+    resize: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.chat-input-box textarea::placeholder {
+    color: #77788c;
+}
+
+.input-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.input-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.input-tools button {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: #a5a6b8;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.model-label {
+    color: #9293a7;
+    font-size: 11px;
+}
+
+.send-button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.send-button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+.input-disclaimer {
+    margin-top: 12px;
+    text-align: center;
+    color: #66677a;
+    font-size: 10px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 230px;
+        min-width: 230px;
+        padding: 22px 15px;
+    }
+
+    .chat-header {
+        padding: 0 22px;
+    }
+
+    .welcome-screen h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+    .sidebar {
+        display: none;
+    }
+
+    .chat-header {
+        height: 65px;
+        min-height: 65px;
+        padding: 0 18px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .chat-content {
+        padding: 20px 15px;
+    }
+
+    .welcome-screen {
+        padding: 20px 0;
+    }
+
+    .welcome-screen h1 {
+        font-size: 34px;
+    }
+
+    .welcome-description {
+        font-size: 13px;
+    }
+
+    .suggestion-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .suggestion-card {
+        padding: 15px;
+    }
+
+    .chat-input-area {
+        padding: 12px 12px 18px;
+    }
+
+    .chat-input-box {
+        padding: 15px;
+    }
+}
+/* Chat messages */
+
+.message-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 15px auto;
+    display: flex;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.assistant-message {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 15px 20px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: #f5f5fa;
+}
+
+.user-message .message-bubble {
+    background: rgba(124, 58, 237, 0.25);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-bottom-right-radius: 5px;
+}
+
+.assistant-message .message-bubble {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom-left-radius: 5px;
+}
+/* ALITRON chat message layout fix */
+
+#chatContent #chatContent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    width: 100%;
+
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+}
+
+/* Each message occupies its own row */
+.message-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-shrink: 0;
+}
+
+/* User message on the right */
+.user-message {
+    justify-content: flex-end;
+}
+
+/* AI message on the left */
+.assistant-message {
+    justify-content: flex-start;
+}
+
+/* Message bubble */
+.message-bubble {
+    max-width: 80%;
+    padding: 15px 20px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: #f5f5fa;
+}
+
+/* User bubble */
+.user-message .message-bubble {
+    background: rgba(124, 58, 237, 0.25);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-bottom-right-radius: 5px;
+}
+
+/* ALITRON response bubble */
+.assistant-message .message-bubble {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom-left-radius: 5px;
+}
+/* =====================================
+   ALITRON CHAT HISTORY + SCROLL FIX
+===================================== */
+
+/* Keep the workspace inside the screen */
+#chatContent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    width: 100%;
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+}
+
+/* Sidebar scrolling */
+.sidebar {
+    height: 100vh;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Main chat area */
+.chat-main {
+    height: 100vh;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Chat messages area */
+#chatContent {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+/* Keep messages properly arranged */
+.message-wrapper {
+    width: 100%;
+    max-width: 800px;
+    flex-shrink: 0;
+    margin: 12px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Message bubbles */
+.message-bubble {
+    max-width: 80%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+/* Recent chats section */
+#chatHistoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Recent chat buttons */
+.history-item {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    font-size: 13px;
+}
+
+/* Hover effect */
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active conversation */
+.history-item.active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Keep input area at bottom */
+.chat-input-area {
+    flex-shrink: 0;
+}
+/* ============================= */
+/* ALITRON RECENT CHAT HISTORY */
+/* ============================= */
+
+#chatHistoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+/* Each chat row */
+#chatHistoryList .chat-history-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+/* Chat title button */
+#chatHistoryList .chat-history-item {
+    flex: 1;
+    min-width: 0;
+    height: 36px;
+
+    padding: 0 12px;
+
+    background: #151522;
+    color: #e5e5f0;
+
+    border: 1px solid #29293b;
+    border-radius: 9px;
+
+    font-size: 13px;
+    text-align: left;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Hover */
+#chatHistoryList .chat-history-item:hover {
+    background: #202033;
+    border-color: #6550c8;
+}
+
+/* Active chat */
+#chatHistoryList .chat-history-item.active {
+    background: #211b3d;
+    border-color: #6d55d9;
+    color: #ffffff;
+}
+
+/* Rename and Delete buttons */
+#chatHistoryList .chat-action-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #171725;
+    color: #b9b9d1;
+
+    border: 1px solid #303044;
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Rename hover */
+#chatHistoryList .rename-chat-btn:hover {
+    background: #292044;
+    border-color: #8064e8;
+}
+
+/* Delete hover */
+#chatHistoryList .delete-chat-btn:hover {
+    background: #3a2028;
+    border-color: #d65b6a;
+}
+
+/* Remove default browser button appearance */
+#chatHistoryList button {
+    font-family: inherit;
+    outline: none;
+}
+/* ALITRON Home Button */
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.home-btn {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #171725;
+    color: #ffffff;
+
+    border: 1px solid #303044;
+    border-radius: 9px;
+
+    text-decoration: none;
+    font-size: 15px;
+
+    transition: 0.2s ease;
+}
+
+.home-btn:hover {
+    background: #292044;
+    border-color: #8064e8;
+    transform: translateY(-2px);
+}
+.user-account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    margin: 12px 0;
+    background: #111624;
+    border: 1px solid #252d40;
+    border-radius: 12px;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25203f;
+    border-radius: 50%;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.user-details span {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-details small {
+    color: #929bb0;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+#logoutBtn {
+    background: transparent;
+    border: 1px solid #30394d;
+    color: #ff8b8b;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: #1c5186;
+}
+/* Bottom Account Menu */
+
+.account-menu-container {
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color, #252735);
+}
+
+.account-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.account-trigger:hover {
+    background: #171925;
+}
+
+.account-avatar,
+.popover-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #292044;
+    color: white;
+    font-weight: 600;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.account-info span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-info small {
+    font-size: 11px;
+    color: #929bb0;
+    margin-top: 4px;
+}
+
+.account-arrow {
+    color: #929bb0;
+    font-size: 18px;
+}
+
+/* Popup appears above account section */
+
+.account-popover {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 10px);
+    width: 100%;
+    padding: 10px;
+    background: #202127;
+    border: 1px solid #343640;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    display: none;
+    z-index: 1000;
+}
+
+.account-popover.show {
+    display: block;
+}
+
+.popover-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.popover-user strong {
+    display: block;
+    color: white;
+    font-size: 14px;
+}
+
+.popover-user small {
+    display: block;
+    color: #a0a2ad;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.popover-divider {
+    height: 1px;
+    background: #3a3b44;
+    margin: 8px 0;
+}
+
+.popover-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: #e5e5e9;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.popover-item:hover {
+    background: #34353f;
+}
+
+.popover-item span {
+    flex: 1;
+}
+
+.logout-item {
+    color: #ff9999;
+}
+/* =========================================
+   ACCOUNT POPUP
+========================================= */
+
+.account-menu-container {
+    position: relative;
+    margin-top: auto;
+    width: 100%;
+    padding-top: 12px;
+}
+
+/* Existing bottom account button */
+
+.account-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 10px;
+
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+}
+
+.account-trigger:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.account-avatar {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #30234f;
+    color: white;
+
+    font-weight: 600;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    overflow: hidden;
+}
+
+.account-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-workspace {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+/* Popup */
+
+.account-popover {
+    position: absolute;
+
+    left: 0;
+    bottom: calc(100% + 10px);
+
+    width: 260px;
+
+    display: none;
+    flex-direction: column;
+
+    padding: 10px;
+
+    background: #20202b;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+    z-index: 1000;
+}
+
+.account-popover.show {
+    display: flex;
+}
+
+.popover-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px;
+}
+
+.popover-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    overflow: hidden;
+}
+
+.popover-user-info span:first-child {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.popover-user-info span:last-child {
+    font-size: 12px;
+    opacity: 0.65;
+    overflow-wrap: anywhere;
+}
+
+.popover-divider {
+    height: 1px;
+    margin: 8px 0;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.popover-item {
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: inherit;
+
+    text-align: left;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.popover-item:hover {
+    background: rgba(160, 141, 141, 0.08);
+}
+
+.logout-item {
+    color: #ff7777;
+}
